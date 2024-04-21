@@ -93,13 +93,11 @@ public class Employee {
 	public int getAnnualIncomeTax() {
 		
 		//Menghitung berapa lama pegawai bekerja dalam setahun ini, jika pegawai sudah bekerja dari tahun sebelumnya maka otomatis dianggap 12 bulan.
-		LocalDate date = LocalDate.now();
-		
-		if (date.getYear() == yearJoined) {
-			monthWorkingInYear = date.getMonthValue() - monthJoined;
-		}else {
-			monthWorkingInYear = 12;
-		}
+		LocalDate now = LocalDate.now();
+		int monthsWorkedThisYear = (now.getYear() == yearJoined) ? now.getMonthValue() - monthJoined : 12;
+
+		boolean isMarried = spouseName != null && !spouseName.isEmpty();
+		int numberOfChildren = childNames.size();
 		
 		return TaxFunction.calculateTax(monthlySalary, otherMonthlyIncome, monthWorkingInYear, annualDeductible, spouseIdNumber.equals(""), childIdNumbers.size());
 	}
