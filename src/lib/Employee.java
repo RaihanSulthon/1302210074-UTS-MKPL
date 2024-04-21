@@ -66,8 +66,8 @@ public class Employee {
 				baseSalary = 7000000;
 				break;
 			default:
-				System.err.println("Invalid grade specified");
-				return; // Exit method if grade is invalid
+				System.err.println("Grade Invalid");
+				return;
 		}
 		monthlySalary = isForeigner ? (int) (baseSalary * 1.5) : baseSalary;
 	}
