@@ -99,6 +99,6 @@ public class Employee {
 		boolean isMarried = spouseName != null && !spouseName.isEmpty();
 		int numberOfChildren = childNames.size();
 		
-		return TaxFunction.calculateTax(monthlySalary, otherMonthlyIncome, monthWorkingInYear, annualDeductible, spouseIdNumber.equals(""), childIdNumbers.size());
+		return TaxFunction.calculateTax(monthlySalary, otherMonthlyIncome, monthsWorkedThisYear, annualDeductible, !isMarried, numberOfChildren);
 	}
 }
